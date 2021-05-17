@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>diksadinata | Dashboard</title>
+  <title>Live Action</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,10 +37,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-      <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
-      </li>
-     
+
     </ul>
 
     <!-- SEARCH FORM -->
@@ -217,7 +213,7 @@
   <!-- Content Wrapper. Contains page content -->
   <article style="text-align: center;">
   <div class="content-wrapper">
-  <h1 class="m-0">LIST ANIME 2022</h1>
+  <h1 class="m-0">LIST LIVE ACTION</h1>
     
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -295,229 +291,62 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-         
-            
-       
-            <ul class="right">
-               <a href="/input" class="btn btn-primary btn-sm">tambahkan data</a> 
-            </ul>
-        
+
+          
+<div class = "container">
+<h1>Daftar anime</h1>
+<form action="/edit1/{{$liveaction->id}}" method="post">
+@csrf
+@method ('put')
 <table class="table">
     <thead class="black">
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">judul_anime</th>
+        <th scope="col">nama_film</th>
         <th scope="col">genre</th>
-        <th scope="col">season</th>
         <th scope="col">studio</th>
-        <th scope="col">rating</th>
-        <th scope="col">Aksi</th>
+        <th scope="col">skor</th>
+        <th scope="col">hasil</th>
+        
      </tr>
   </thead>
   <tbody>
-  
-  @foreach($listanime as $nl)
-
     <tr>
-    <th scope="col">{{$nl->id}} </th>
-     <th scope="col">{{$nl->judul_anime}} </th>
-     <th scope="col">{{$nl->genre->genre}} </th>
-     <th scope="col">{{$nl->season}} </th>
-     <th scope="col">{{$nl->studio}} </th>
-     <th scope="col">{{$nl->rating}} </th>
       <td>
-      <a href="/edit/{{$nl->id}}" class="btn btn-primary btn-sm">Edit</a>
-      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{$nl->id}}">
-                  hapus
-        </button>
-      </td>
-    </tr>
-    @endforeach
-    
-     
-@foreach($listanime as $nl)
-<div class="modal fade" id="delete{{$nl->id}}">
-        <div class="modal-dialog">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h4 class="modal-title">Hapus data ini?</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>apakah anda igin menghapus data ini?&hellip;</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">tidak</button>
-              
-              <form action="/delete/{{$nl->id}}" method="post" class="inline">
-              @method ('delete')
-              @csrf
-              <button type="submit" class="btn btn-outline-light">iya</button>
-              </form>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-      @endforeach
-      </article>
-     
-<table>
-<article style="text-align: center;">
-      <h2 class="m-0">Rekomendasi Anime Tahun 2021</h2>
-  <p>
-    2021 merupakan tahun yang sangat membahagiakan bagi para penikmat anime, karna tahun ini sangat banyak sekali anime yang di tunggu-tunggu akhirnya di rilis di tahun 2021
-  </p>
-    <P>
-      Tidak terasa musim gugur berjalan dengan cepat dan kita telah mulai memasuki musim dingin. Itu artinya akan ada banyak anime baru yang menanti untuk kita tonton. Pada artikel kali ini, IDN Times Community akan berbagi judul-judul anime menarik untuk kita tonton di musim dingin 2021 ini. Apa sajakah judulnya? Yuk, kita simak bersama-sama!           
-    </p>
-      <p>
-        <p style="text-align-center">
-          <b>1. Dr. STONE: STONE WARS</b>
-        </p>
-      </p>
-    <p>
-     <img src="template/dist/img/981906.jpg" width="500" height="320"  />
-    </p>
-  <p>
-  Season kedua dari petualangan Senku, sang scientist, bersama teman-temannya ini akan yang berusaha mengembalikan dunia kembali seperti semula setelah kejadian aneh yang membuat seluruh manusia di muka bumi menjadi batu. Seperti judulnya, yaitu Stone Wars, season kali ini berfokus pada pertempuran melawan Tsukasa Shisio dan tentunya mengandalkan ilmu pengetahuan yang luar biasa dari Senku.<p>
-  Season kedua dari anime yang merupakan adaptasi dari manga berjudul sama ini akan kembali dikerjakan oleh TMS Entertainment dan rencananya akan rilis pada 14 Januari 2021 mendatang. Untuk kamu yang sudah menonton season pertama, pasti sudah tidak sabar lagi melihat sepak terjang Senku, bukan? 
-  <P>
-
-    <div class="text-align-center">
-      <b>2. Yakusoku no Neverland season 2</b>
-    </div>
-  <P>
-    <br>
-        <img src="template/dist/img/1001742.png" width="500" height="320">
-    </br>
-  <p>
-  Setelah akhirnya berhasil kabur dari tempat dia dibesarkan, Emma dan kawan-kawan dihadapkan dengan tantangan baru yaitu bertahan hidup di dunia yang sama sekali asing dengan mereka. Beruntung, mereka bertemu dengan dua orang rekan yang tak disangka sebelumnya. Lambat laun, mereka semakin mampu untuk bertahan hidup.
-  <p>
-
-  Season kedua dari anime ini merupakan kelanjutan dari season pertama saat Emma pertama kali mengetahui rahasia sebenarnya dari tempat dia dibesarkan. Hal itu mendorong Emma untuk kabur dari tempat tersebut sambil membawa saudara-saudaranya yang masih kecil. Namun, apakah mereka bisa bertahan hidup di luar sana? Anime ini mulai tayang pada 7 Januari 2021.
-  <p>
-      <div class="center text-align-center">
-       <b>3. Go-toubun no Hanayome ∬</b>
-      </div>
-
-  <p>
-  <img src="template/dist/img/1002864.png" width="500" height="320"  />
-  <p>  
-  Season kedua dari Waifu War antara lima saudari kembar untuk memperebutkan Futaro Uesugi yang merupakan guru privat mereka. Setelah season pertama anime ini tayang, semakin banyak yang dibuat penasaran siapakah yang akhirnya akan dipinang oleh Futaro Uesugi dan saling berdebat siapakah yang terbaik dari kelima saudari tersebut.<p>
-
-  Sebagai informasi, pada awal kisah anime ini, salah satu dari kelima saudari tersebut akan menikah dengan Futaro Uesugi. Namun, karena mereka kembar, sulit untuk mengetahui siapakah orang tersebut. Untuk kamu yang juga dibuat penasaran, anime ini bisa kamu saksikan pada 7 Januari 2021 mendatang, lho.
-  </article>
-</table>
-<div  class="post-info">
-        Di  Posting  Oleh  <b>Admin</b>
-</div>
-<br></br>
-    <table border="1" width="100%">
-        <thead>
-            <tr>
-                <th>daftar Anime</th>
-                <th>Tanggal rilis</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <ul>
-                        <li>Dr. STONE: STONE WARS</li>
-                        <li>Yakusoku no Neverland season 2</li>
-                        <li> Go-toubun no Hanayome ∬</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>1   JANUARI   2021</li>
-                        <li>2   FEBRUARI  2021</li>
-                        <li>17  JANUARI   2021</li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-        </table>
-    </div>
-    <br></br>
-      
-
-                <!-- /. tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body pt-0">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+        <div class = "input0">
+		<label ></label>  
+		<input type="varchar" name="nama_film" value="{{$liveaction->nama_film}}">
+		</div>
+  </td>
+  <td>
+  <div class="from-group">
+  <select class="from-control select2" style="width: 100%;" name="genre_id" id="genre_id">
+  <option disabled value>pilih genre</option>
+  @foreach ($gen as $lc)
+  <option value="{{$lc->id}}">{{$lc->genre}}</option>
+  @endforeach
+  </select>
   </div>
-  <!-- /.content-wrapper -->
-  <!-- <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0-rc
-    </div>
-  </footer> -->
-  
-  
+  </td>
+      <td><div class = "input2">
+		<label ></label>  
+		<input type="varchar" name="studio"value="{{$liveaction->studio}}">
+		</div>
+  </td>
+      <td><div class = "input3">
+		<label ></label>  
+		<input type="number" name="skor"value="{{$liveaction->rating}}">
+		</div></td>
+      <td></div>
+		<div class ="submit">
+    <button class="btn btn-primary btn-sm">EDIT</button> 
+    <button class="breadcrumb-item"><a href="/live">kembali</a>
+		</div>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="{{asset('template')}}/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('template')}}/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('template')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="{{asset('template')}}/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="{{asset('template')}}/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="{{asset('template')}}/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="{{asset('template')}}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('template')}}/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="{{asset('template')}}/plugins/moment/moment.min.js"></script>
-<script src="{{asset('template')}}/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('template')}}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('template')}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('template')}}/dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('template')}}/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('template')}}/dist/js/pages/dashboard.js"></script>
-
-</body>
-</html>
+   
+ 
+    </tr>
+  </tbody>
+  <tbody>
+   
+</table>
+</form>

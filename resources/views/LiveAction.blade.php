@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>diksadinata | Dashboard</title>
+  <title>Live Action</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,14 +37,11 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-      <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
-      </li>
-     
+
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3"method="get" action="/">
+    <form class="form-inline ml-3"method="get" action="/live">
       <div class="input-group input-group-sm">
         <input name="search" class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -217,7 +213,7 @@
   <!-- Content Wrapper. Contains page content -->
   <article style="text-align: center;">
   <div class="content-wrapper">
-  <h1 class="m-0">LIST ANIME 2022</h1>
+  <h1 class="m-0">LIST LIVE ACTION</h1>
     
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -299,35 +295,33 @@
             
        
             <ul class="right">
-               <a href="/input" class="btn btn-primary btn-sm">tambahkan data</a> 
+               <a href="/input1" class="btn btn-primary btn-sm">tambahkan data</a> 
             </ul>
         
 <table class="table">
     <thead class="black">
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">judul_anime</th>
+        <th scope="col">nama_film</th>
         <th scope="col">genre</th>
-        <th scope="col">season</th>
         <th scope="col">studio</th>
-        <th scope="col">rating</th>
+        <th scope="col">skor</th>
         <th scope="col">Aksi</th>
      </tr>
   </thead>
   <tbody>
   
-  @foreach($listanime as $nl)
+  @foreach($liveaction as $lc)
 
     <tr>
-    <th scope="col">{{$nl->id}} </th>
-     <th scope="col">{{$nl->judul_anime}} </th>
-     <th scope="col">{{$nl->genre->genre}} </th>
-     <th scope="col">{{$nl->season}} </th>
-     <th scope="col">{{$nl->studio}} </th>
-     <th scope="col">{{$nl->rating}} </th>
+    <th scope="col">{{$lc->id}} </th>
+     <th scope="col">{{$lc->nama_film}} </th>
+     <th scope="col">{{$lc->genre->genre}} </th>
+     <th scope="col">{{$lc->studio}} </th>
+     <th scope="col">{{$lc->skor}} </th>
       <td>
-      <a href="/edit/{{$nl->id}}" class="btn btn-primary btn-sm">Edit</a>
-      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{$nl->id}}">
+      <a href="/edit1/{{$lc->id}}" class="btn btn-primary btn-sm">Edit</a>
+      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{$lc->id}}">
                   hapus
         </button>
       </td>
@@ -335,8 +329,8 @@
     @endforeach
     
      
-@foreach($listanime as $nl)
-<div class="modal fade" id="delete{{$nl->id}}">
+@foreach($liveaction as $lc)
+<div class="modal fade" id="delete{{$lc->id}}">
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
             <div class="modal-header">
@@ -351,7 +345,7 @@
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-outline-light" data-dismiss="modal">tidak</button>
               
-              <form action="/delete/{{$nl->id}}" method="post" class="inline">
+              <form action="/delete/{{$lc->id}}" method="post" class="inline">
               @method ('delete')
               @csrf
               <button type="submit" class="btn btn-outline-light">iya</button>
@@ -368,49 +362,47 @@
      
 <table>
 <article style="text-align: center;">
-      <h2 class="m-0">Rekomendasi Anime Tahun 2021</h2>
+      <h2 class="m-0">LIVE ACTION </h2>
   <p>
-    2021 merupakan tahun yang sangat membahagiakan bagi para penikmat anime, karna tahun ini sangat banyak sekali anime yang di tunggu-tunggu akhirnya di rilis di tahun 2021
+  Nggak cuma di anime dan manga, aksi keren jagoan tersebut juga bisa kamu temukan di berbagai film live action. Pada kesempatan kali ini penulis ingin memberikan rekomendasi film live action terbaik sepanjang masa. Penasaran? Langsung saja simak daftarnya di bawah ini!
   </p>
-    <P>
-      Tidak terasa musim gugur berjalan dengan cepat dan kita telah mulai memasuki musim dingin. Itu artinya akan ada banyak anime baru yang menanti untuk kita tonton. Pada artikel kali ini, IDN Times Community akan berbagi judul-judul anime menarik untuk kita tonton di musim dingin 2021 ini. Apa sajakah judulnya? Yuk, kita simak bersama-sama!           
-    </p>
+
       <p>
         <p style="text-align-center">
-          <b>1. Dr. STONE: STONE WARS</b>
+          <b>1. Fullmetal Alchemist (2017)</b>
         </p>
       </p>
     <p>
-     <img src="template/dist/img/981906.jpg" width="500" height="320"  />
+     <img src="template/dist/img/full.JPG" width="500" height="320"  />
     </p>
   <p>
-  Season kedua dari petualangan Senku, sang scientist, bersama teman-temannya ini akan yang berusaha mengembalikan dunia kembali seperti semula setelah kejadian aneh yang membuat seluruh manusia di muka bumi menjadi batu. Seperti judulnya, yaitu Stone Wars, season kali ini berfokus pada pertempuran melawan Tsukasa Shisio dan tentunya mengandalkan ilmu pengetahuan yang luar biasa dari Senku.<p>
-  Season kedua dari anime yang merupakan adaptasi dari manga berjudul sama ini akan kembali dikerjakan oleh TMS Entertainment dan rencananya akan rilis pada 14 Januari 2021 mendatang. Untuk kamu yang sudah menonton season pertama, pasti sudah tidak sabar lagi melihat sepak terjang Senku, bukan? 
+  Fullmetal Alchemist jadi salah satu anime yang sangat populer. Berkat itu, anime ini diadaptasi ke live action dengan ilustrasi yang lebih menantang. Ini merupakan kisah kakak beradik yang mencoba untuk menghidupkan kembali ibu mereka yang sudah meninggal dengan cara terlarang.<p>
+  Edward dan Alphonse pun gagal dan harus membayarnya dengan bagian tubuh mereka. Ed kehilangan salah satu lengan dan kakinya, sedangkan Al kehilangan seluruh tubuhnya hingga ia menggunakan armor sebagai wadah jiwanya. Mereka pun mulai mencari cara untuk mengembalikan bagian tubuh yang hilang. 
   <P>
 
     <div class="text-align-center">
-      <b>2. Yakusoku no Neverland season 2</b>
+      <b>2. Death Note (2006)</b>
     </div>
   <P>
     <br>
-        <img src="template/dist/img/1001742.png" width="500" height="320">
+        <img src="template/dist/img/death.webp" width="500" height="320">
     </br>
   <p>
-  Setelah akhirnya berhasil kabur dari tempat dia dibesarkan, Emma dan kawan-kawan dihadapkan dengan tantangan baru yaitu bertahan hidup di dunia yang sama sekali asing dengan mereka. Beruntung, mereka bertemu dengan dua orang rekan yang tak disangka sebelumnya. Lambat laun, mereka semakin mampu untuk bertahan hidup.
+  Sebagai anime dengan popularitas yang sangat tinggi, Death Note juga mendapat banyak adaptasi. Salah satunya adalah film live action di tahun 2006 lalu yang menyuguhkan unsur kriminalitas menarik untuk diikuti. 
   <p>
 
-  Season kedua dari anime ini merupakan kelanjutan dari season pertama saat Emma pertama kali mengetahui rahasia sebenarnya dari tempat dia dibesarkan. Hal itu mendorong Emma untuk kabur dari tempat tersebut sambil membawa saudara-saudaranya yang masih kecil. Namun, apakah mereka bisa bertahan hidup di luar sana? Anime ini mulai tayang pada 7 Januari 2021.
+  Film ini menceritakan Light Yagami yang menemukan sebuah buku ajaib bernama Death Note. Buku tersebut ternyata bisa membunuh siapapun yang namanya tertulis di dalamnya. Yagami pun mulai memanfaatkan buku itu untuk tindak kriminalitas. Di sisi lain, seorang detektif jenius, L berusaha untuk menghentikannya.
   <p>
       <div class="center text-align-center">
-       <b>3. Go-toubun no Hanayome ∬</b>
+       <b>3. Bleach (2018)</b>
       </div>
 
   <p>
-  <img src="template/dist/img/1002864.png" width="500" height="320"  />
+  <img src="template/dist/img/90906.jpg" width="500" height="320"  />
   <p>  
-  Season kedua dari Waifu War antara lima saudari kembar untuk memperebutkan Futaro Uesugi yang merupakan guru privat mereka. Setelah season pertama anime ini tayang, semakin banyak yang dibuat penasaran siapakah yang akhirnya akan dipinang oleh Futaro Uesugi dan saling berdebat siapakah yang terbaik dari kelima saudari tersebut.<p>
+  Bleach juga menjadi anime populer dengan animasi pertarungan yang epik serta karakter yang menarik. Jika kamu mencari anime terbaik yang diadaptasi ke live action, maka Bleach adalah salah satunya. Plot twist yang tak terduga dijamin akan membuatmu kaget.<p>
 
-  Sebagai informasi, pada awal kisah anime ini, salah satu dari kelima saudari tersebut akan menikah dengan Futaro Uesugi. Namun, karena mereka kembar, sulit untuk mengetahui siapakah orang tersebut. Untuk kamu yang juga dibuat penasaran, anime ini bisa kamu saksikan pada 7 Januari 2021 mendatang, lho.
+  Bleach mengisahkan tentang seorang anak SMA bernama Kurosaki Ichigo yang mendapat kekuatan shinigami atau dewa kematian sehingga ia bisa melihat roh jahat yang disebut hollow. Nantinya Ichigo juga akan bekerja sama dengan shinigami lainnya di Soul Society..
   </article>
 </table>
 <div  class="post-info">
@@ -420,8 +412,8 @@
     <table border="1" width="100%">
         <thead>
             <tr>
-                <th>daftar Anime</th>
-                <th>Tanggal rilis</th>
+                <th>daftar live action</th>
+                
             </tr>
         </thead>
         <tbody>
